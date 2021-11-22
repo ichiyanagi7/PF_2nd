@@ -1,6 +1,51 @@
+<!--トップページ-->
+
 <div class="container">
-  <div class="row">
-    <h1>トップページ</h1>
+  <div class="row mb-3">
+    <h1><%= @today.strftime("%Y 年 %m 月") %></h1>
   </div>
+
+  <div class="row">
+    <div class="table col">
+      <table>
+       <tr>
+        <% t('date.abbr_day_names').each do |day_name| %>
+          <td>
+            <%= day_name %>
+          </td>
+        <% end %>
+      </tr>
+      <% @calendar_data.each_with_index do |date,i| %>
+        <% if date.wday == 0 %>
+          <tr>
+        <% end %>
+        <td>
+          <button class="btn" id=<%= date %>><%= date.day %></button>
+        </td>
+        <% if date.wday == 6 %>
+        </tr>
+        <% end %>
+
+        <script>
+          $(function(){
+            $("#<%= date %>").on("click",function(event){
+              $("#day_info").css({
+                'display':'none'
+              });
+            });
+          });
+        </script>
+
+      <% end %>
+      </table>
+    </div>
+
+    <!--記録内容表示-->
+    <div class="col" id="day_info">
+      <h3><%= @today.strftime("%m") %>月<%= @today.strftime("%d") %>日</h3>
+    </div>
+
+  </div>
+
 </div>
 
