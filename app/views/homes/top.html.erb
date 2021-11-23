@@ -15,7 +15,7 @@
           </td>
         <% end %>
       </tr>
-      <% @calendar_data.each_with_index do |date,i| %>
+      <% @calendar_data.each do |date| %>
         <% if date.wday == 0 %>
           <tr>
         <% end %>
@@ -43,6 +43,8 @@
     <!--記録内容表示-->
     <div class="col" id="day_info">
       <h3><%= @today.strftime("%m") %>月<%= @today.strftime("%d") %>日</h3>
+      <p>Music :</p>
+      <p>Diary :</p>
     </div>
 
   </div>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  artist: MyString
+  music: MyString
+  word: MyText
+  date: 2021-11-22 11:21:33
+
+two:
+  artist: MyString
+  music: MyString
+  word: MyText
+  date: 2021-11-22 11:21:33

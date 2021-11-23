@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_22_055447) do
+ActiveRecord::Schema.define(version: 2021_11_22_112133) do
+
+  create_table "diaries", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "artist", null: false
+    t.string "music", null: false
+    t.text "word"
+    t.datetime "date", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"

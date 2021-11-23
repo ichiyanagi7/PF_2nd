@@ -14,18 +14,17 @@
   </head>
 
   <body>
-    <header class="navbar mb-3">
-      <div class="container">
-        <h1><%= link_to "Record(title)",root_path %></h1>
-        <nav>
-          <ul class="nav justify-content-end">
-            <li><%= link_to "About",about_path ,class:"nav-items mx-5" %></li>
-          
-              <li><%= link_to "Log in",login_path ,class:"nav-items mx-5" %></li>
-              <li><%= link_to "Log out","#" ,class:"nav-items mx-5" %></li>
-          </ul>
-        </nav>
-      </div>
+    <header class="navbar my-3">
+      <h1><%= link_to "Record -音楽を記録-",root_path ,class:"text-dark" %></h1>
+      <nav>
+        <ul class="nav justify-content-end">
+          <li><%= link_to "About",about_path ,class:"nav-items mx-5" %></li>
+          <li><%= link_to "記録",new_diary_path,class:"nav-items mx-5" %></li>
+          <li><%= link_to "Sign up", "#",class:"nav-items mx-5" %></li>
+          <li><%= link_to "Log in",login_path ,class:"nav-items mx-5" %></li>
+          <li><%= link_to "Log out","#" ,class:"nav-items mx-5" %></li>
+        </ul>
+      </nav>
     </header>
 
 
