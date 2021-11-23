@@ -1,4 +1,6 @@
 class HomesController < ApplicationController
+    skip_before_action :require_sign_in!, only: [:about]
+
   def top
     @today = Date.today
     from_date = Date.new(@today.year, @today.month, @today.beginning_of_month.day).beginning_of_week(:sunday)
