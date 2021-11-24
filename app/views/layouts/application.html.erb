@@ -19,10 +19,14 @@
       <nav>
         <ul class="nav justify-content-end">
           <li><%= link_to "About",about_path ,class:"nav-items mx-5" %></li>
-          <li><%= link_to "記録",new_diary_path,class:"nav-items mx-5" %></li>
-          <li><%= link_to "Sign up", new_user_path,class:"nav-items mx-5" %></li>
-          <li><%= link_to "Log in",login_path ,class:"nav-items mx-5" %></li>
-          <li><%= link_to "Log out","#" ,class:"nav-items mx-5" %></li>
+          <li><%= link_to "記録する",new_diary_path,class:"nav-items mx-5" %></li>
+          <% if signed_in? %>
+            <li><%= link_to "Log out",logout_path,method: :delete ,class:"nav-items mx-5" %></li>
+          <% else %>
+            <li><%= link_to "Sign up", new_user_path,class:"nav-items mx-5" %></li>
+            <li><%= link_to "Log in",login_path ,class:"nav-items mx-5" %></li>
+          <% end %>
+
         </ul>
       </nav>
     </header>

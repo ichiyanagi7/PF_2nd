@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
   has_secure_password validations: true
 
-  validates :mail, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
 
 
   def self.new_remember_token

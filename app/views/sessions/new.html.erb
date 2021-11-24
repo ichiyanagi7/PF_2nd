@@ -1,17 +1,26 @@
-<!--ログインページ-->
-
-<%= form_for(:session, url: login_path) do |f| %>
-  <div class="form-group">
-      <%= f.label :email, 'Email' %>
-      <%= f.email_field :email, class: 'form-control' %>
+<div class="container">
+  <div class="row">
+    <h3>ログイン</h3>
   </div>
 
-  <div class="form-group">
-      <%= f.label :password, 'Password' %>
-      <%= f.password_field :password, class: 'form-control' %>
+  <div class="row">
+    <%= form_with scope: :session,url: login_path ,method: :post do |f| %>
+      <div class="col form-group">
+          <%= f.label :email, 'Email' %>
+          <%= f.email_field :email, class: 'form-control' %>
+      </div>
+
+      <div class="col form-group">
+          <%= f.label :password, 'Password' %>
+          <%= f.password_field :password, class: 'form-control' %>
+      </div>
+      <div class="col form-group">
+        <%= f.submit 'Log in', class: 'btn btn-outline-dark' %>
+      </div>
+      <div class="col">
+        <%= link_to 'Sign up', new_user_path %>
+      </div>
+    <% end %>
   </div>
+</div>
 
-  <%= f.submit 'Log in', class: 'btn btn-primary btn-block' %>
-<% end %>
-
-<!--<p>New user? < %= link_to 'サインアップ画面', signup_path %></p>-->

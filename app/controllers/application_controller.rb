@@ -28,6 +28,7 @@ class ApplicationController < ActionController::Base
 
   private
 
+# サインインしてなければログインページに遷移
   def require_sign_in!
     redirect_to login_path unless signed_in?
   end

@@ -1,5 +1,5 @@
 class HomesController < ApplicationController
-    skip_before_action :require_sign_in!, only: [:about]
+  skip_before_action :require_sign_in!, only: [:about,:top]
 
   def top
     @today = Date.today
