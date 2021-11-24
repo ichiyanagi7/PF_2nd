@@ -1,13 +1,13 @@
 <!--トップページ-->
 
 <div class="container">
-  <div class="row mb-3">
+  <div class="row mb-3 justify-content-center">
     <h1><%= @today.strftime("%Y 年 %m 月") %></h1>
   </div>
 
-  <div class="row">
-    <div class="table col">
-      <table>
+  <div class="row justify-content-center">
+    <div class="table col-12 text-center">
+      <table class="date-table">
        <tr>
         <% t('date.abbr_day_names').each do |day_name| %>
           <td>
@@ -39,14 +39,18 @@
       <% end %>
       </table>
     </div>
+  </div>
 
     <!--記録内容表示-->
-    <div class="col" id="day_info">
-      <h3><%= @today.strftime("%m") %>月<%= @today.strftime("%d") %>日</h3>
-      <p>Music :</p>
-      <p>Diary :</p>
+  <div class="row justify-content-between mt-5" id="day_info">
+    <% @diaries.each do |diary| %>
+    <div class="col-4 rounded border">
+      <h3><%= diary.ad_display %></h3>
+      <p>Music : <%= diary.music %></p>
+      <p>Artist : <%= diary.artist %></p>
+      <p>Diary : <%= diary.word %></p>
     </div>
-
+    <% end %>
   </div>
 
 </div>

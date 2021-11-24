@@ -1,10 +1,4 @@
 class DiariesController < ApplicationController
-  def index
-    @today = Date.today
-    from_date = Date.new(@today.year, @today.month, @today.beginning_of_month.day).beginning_of_week(:sunday)
-    to_date = Date.new(@today.year, @today.month, @today.end_of_month.day).end_of_week(:sunday)
-    @calendar_data = from_date.upto(to_date)
-  end
 
   def new
     @diary = Diary.new
@@ -23,7 +17,9 @@ class DiariesController < ApplicationController
   end
 
   def destroy
-
+    diary = Diary.find(params[:id])
+    diary.destroy
+    redirect_to root_path
   end
 
   private
