@@ -43,6 +43,7 @@
 
     <!--記録内容表示-->
   <div class="row justify-content-between mt-5" id="day_info">
+  <% if @diaries.present? %>
     <% @diaries.each do |diary| %>
     <div class="col-4 rounded border">
       <h3><%= diary.ad_display %></h3>
@@ -52,7 +53,13 @@
       <%= link_to "削除",diary_path(diary),method: :delete,class:"btn btn-sm btn-outline-dark" %>
     </div>
     <% end %>
+  <% else %>
+  <div class="col text-center">
+    <p><u>利用するには<%= link_to "ログイン",login_path %>が必要です。</u></p>
   </div>
+  <% end %>
+  </div>
+
 
 </div>
 

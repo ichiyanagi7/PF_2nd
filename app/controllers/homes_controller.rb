@@ -8,7 +8,9 @@ class HomesController < ApplicationController
     @calendar_data = from_date.upto(to_date)
 
     user = current_user
-    @diaries = Diary.where(user_id: user.id).order(:date)
+    if user.present?
+      @diaries = Diary.where(user_id: user.id).order(:date)
+    end
   end
 
   def about
