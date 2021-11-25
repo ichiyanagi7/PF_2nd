@@ -26,15 +26,15 @@
         </tr>
         <% end %>
 
-        <script>
-          $(function(){
-            $("#<%= date %>").on("click",function(event){
-              $("#day_info").css({
-                'display':'none'
-              });
-            });
-          });
-        </script>
+         <script>
+        //   $(function(){
+        //     $("#< %= date %>").on("click",function(event){
+        //       $("#day_info").css({
+        //         'display':'none'
+        //       });
+        //     });
+        //   });
+        // </script>
 
       <% end %>
       </table>
@@ -49,6 +49,7 @@
       <p>Music : <%= diary.music %></p>
       <p>Artist : <%= diary.artist %></p>
       <p>Diary : <%= diary.word %></p>
+      <%= link_to "削除",diary_path(diary),method: :delete,class:"btn btn-sm btn-outline-dark" %>
     </div>
     <% end %>
   </div>

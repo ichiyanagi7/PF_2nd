@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   resources :users,except:[:index,:destroy]
 
-  get 'diaries/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: "homes#top"
@@ -12,6 +11,8 @@ Rails.application.routes.draw do
   post "login", to:"sessions#create"
   delete "logout", to:"sessions#destroy"
 
-  resources :diaries, except:[:index]
+  resources :diaries
+
+  # get "/diaries/:id/archives/:yyyymm", to: "diaries#archives", as: :diary_archive
 
 end

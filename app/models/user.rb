@@ -14,4 +14,5 @@ class User < ApplicationRecord
     Digest::SHA256.hexdigest(token.to_s)
   end
 
+
 end

@@ -67,3 +67,5 @@ gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
 
 gem "rails-i18n", "~> 5.1"
+
+gem 'google-api-client', '~> 0.11'

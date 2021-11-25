@@ -1,5 +1,11 @@
 class DiariesController < ApplicationController
 
+  def index
+    user = current_user
+    @diaries = Diary.where(user_id: user.id)
+  end
+
+
   def new
     @diary = Diary.new
   end

@@ -15,12 +15,13 @@
 
   <body>
     <header class="navbar my-3">
-      <h1><%= link_to "Record -音楽を記録-",root_path ,class:"text-dark" %></h1>
+      <h1><%= link_to "Record -音楽を記録-",root_path ,class:"text-dark title" %></h1>
       <nav>
         <ul class="nav justify-content-end">
           <li><%= link_to "About",about_path ,class:"nav-items mx-5" %></li>
           <li><%= link_to "記録する",new_diary_path,class:"nav-items mx-5" %></li>
           <% if signed_in? %>
+            <!--<li>< %= link_to "マイリスト",diaries_path, class:"nav-items mx-5" %></li>-->
             <li><%= link_to "Log out",logout_path,method: :delete ,class:"nav-items mx-5" %></li>
           <% else %>
             <li><%= link_to "Sign up", new_user_path,class:"nav-items mx-5" %></li>
@@ -34,5 +35,10 @@
 
 
     <%= yield %>
+    
+    <footer>
+      
+    </footer>
+    
   </body>
 </html>
