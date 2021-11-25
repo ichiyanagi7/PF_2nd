@@ -27,14 +27,14 @@
         <% end %>
 
          <script>
-        //   $(function(){
-        //     $("#< %= date %>").on("click",function(event){
-        //       $("#day_info").css({
-        //         'display':'none'
-        //       });
-        //     });
-        //   });
-        // </script>
+          $(function(){
+            $("#<%= date %>").on("click",function(event){
+              $("#day_info").css({
+                'display':'none'
+              });
+            });
+          });
+        </script>
 
       <% end %>
       </table>
@@ -45,7 +45,7 @@
   <div class="row justify-content-between mt-5" id="day_info">
   <% if @diaries.present? %>
     <% @diaries.each do |diary| %>
-    <div class="col-4 rounded border">
+    <div class="col-3 mb-3 p-3 rounded diary-items <%= "border-color" if diary.date.strftime("%Y-%m-%d") == Date.today.to_s %>">
       <h3><%= diary.ad_display %></h3>
       <p>Music : <%= diary.music %></p>
       <p>Artist : <%= diary.artist %></p>
@@ -60,6 +60,4 @@
   <% end %>
   </div>
 
-
 </div>
-
