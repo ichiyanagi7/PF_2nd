@@ -42,7 +42,7 @@
   </div>
 
     <!--記録内容表示-->
-  <div class="row justify-content-between mt-5" id="day_info">
+  <div class="row justify-content-left mt-5" id="day_info">
   <% if @diaries.present? %>
     <% @diaries.each do |diary| %>
     <div class="col-3 mb-3 p-3 rounded diary-items <%= "border-color" if diary.date.strftime("%Y-%m-%d") == Date.today.to_s %>">
