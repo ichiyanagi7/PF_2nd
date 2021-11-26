@@ -53,6 +53,11 @@
       <%= link_to "削除",diary_path(diary),method: :delete,class:"btn btn-sm btn-outline-dark" %>
     </div>
     <% end %>
+  <% elsif @user.present? %>
+    <div class="col text-center">
+      <p><u>記録がありません。<br>
+      <%= link_to "こちら",new_diary_path %>から記録しましょう。</u></p>
+    </div>
   <% else %>
   <div class="col text-center">
     <p><u>利用するには<%= link_to "ログイン",login_path %>が必要です。</u></p>

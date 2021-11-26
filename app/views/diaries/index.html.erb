@@ -1,7 +1,28 @@
-<div>
-  <div>
+<div class="container">
+  <div class="row mb-5">
     <h3>マイプレイリスト</h3>
   </div>
 
+  <div class="row">
+    <% @diaries.each do |key,diaries| %>
+    <div class="col">
+      <h3><%= key[0,4] + "月" + key[4,2] + "日" %></h3>
+      <div class="table">
+        <table>
+          <thead>
+            <th>アーティスト</th>
+            <th>曲名</th>
+          </thead>
+        <% diaries.each do |diary| %>
+          <tbody>
+            <td><%= diary.artist %></td>
+            <td><%= diary.music %></td>
+          </tbody>
+        <% end %>
+        </table>
+        </div>
+      </div>
+      <% end %>
+  </div>
 
 </div>

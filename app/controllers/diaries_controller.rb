@@ -2,7 +2,7 @@ class DiariesController < ApplicationController
 
   def index
     user = current_user
-    @diaries = Diary.where(user_id: user.id)
+    @diaries = Diary.where(user_id: user.id).group_by(&:year_month)
   end
 
 
@@ -14,8 +14,13 @@ class DiariesController < ApplicationController
     diary = Diary.new(diary_params)
     diary.user_id = current_user.id
     if diary.save
-      # リダイレクト先確認する！！
-      redirect_to root_path
+      diary.year_month = diary.date.strftime("%Y%m")
+      if diary.update(diary_params)
+        redirect_to root_path
+      else
+        @diary = diary
+        render :new
+      end
     else
       @diary = diary
       render :new
@@ -31,7 +36,7 @@ class DiariesController < ApplicationController
   private
 
   def diary_params
-    params.require(:diary).permit(:user_id, :artist, :music, :word,:date)
+    params.require(:diary).permit(:user_id, :artist, :music, :word,:date,:year_month)
   end
 
 end
