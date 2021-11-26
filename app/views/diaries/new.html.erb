@@ -5,6 +5,7 @@
 
   <div class="row">
     <%= form_with model: @diary,url: diaries_path,method: :post,local:true do |f| %>
+    <%= render "layouts/error", model: f.object %>
     <div class="row mt-2">
       <div class="col-md-4 mr-auto form-group" id="datetime">
         <%= f.label :日にち %><span class="small  badge badge-warning ml-2">必須</span>

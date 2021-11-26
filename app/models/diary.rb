@@ -6,11 +6,9 @@ class Diary < ApplicationRecord
     self.date.strftime("%Y") + "年 " + self.date.strftime("%m") + "月 " + self.date.strftime("%d") + "日"
   end
 
-  # 月別表示
-  # def divide_monthly
-  #   return self.group("strftime('%Y%m',diaries.date)")
-  #     .order(Arel.sql("strftime('%Y%m',diaries.date) desc"))
-  #     .count
-  # end
+# 一日一投稿に制限,空白制限
+  validates :date, uniqueness: true,presence: true
+  validates :artist, presence: true
+  validates :music, presence: true
 
 end

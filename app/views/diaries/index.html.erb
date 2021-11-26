@@ -5,13 +5,14 @@
 
   <div class="row">
     <% @diaries.each do |key,diaries| %>
-    <div class="col">
+    <div class="col-12 mb-3 border-bottom">
       <h3><%= key[0,4] + "年" + key[4,2] + "月" %></h3>
       <div class="table">
         <table>
           <thead>
             <th>アーティスト</th>
             <th>曲名</th>
+            <th></th>
           </thead>
         <% diaries.each do |diary| %>
           <tbody>
