@@ -2,7 +2,7 @@ class DiariesController < ApplicationController
 
   def index
     user = current_user
-    @diaries = Diary.where(user_id: user.id).group_by(&:year_month)
+    @diaries = Diary.where(user_id: user.id).order(:date).group_by(&:year_month)
   end
 
 
