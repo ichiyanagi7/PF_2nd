@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   skip_before_action :require_sign_in!, only: [:new, :create]
 
+  def index
+  end
+
   def show
     @user = User.find(params[:id])
   end

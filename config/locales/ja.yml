@@ -8,3 +8,19 @@ ja:
       - Thu
       - Fri
       - Sat
+
+  sessions:
+    new:
+      form_registration: '登録'
+      first_name: '姓'
+      last_name: '名'
+      mail: 'メールアドレス'
+      image_file: 'プロフィール画像'
+      password: 'パスワード'
+      password_confirmation: 'パスワード（確認）'
+      login: 'ログイン'
+      forget_password: 'パスワードをお忘れの方はこちら'
+      login_link: 'ログインはこちら'
+    flash:
+      success: "ユーザー登録が成功しました"
+      danger: "ユーザー登録失敗"

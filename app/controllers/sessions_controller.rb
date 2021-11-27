@@ -8,10 +8,9 @@ class SessionsController < ApplicationController
   def create
     if @user.authenticate(session_params[:password])
       sign_in(@user)
-      redirect_to root_path
+      redirect_to root_path,notice: "ログインに成功しました。"
     else
-      flash.now[:danger] = t('.flash.invalid_password')
-      render :new
+      redirect_to login_path, notice: "ログインできませんでした。"
     end
   end
 
@@ -25,7 +24,7 @@ class SessionsController < ApplicationController
   def set_user
     @user = User.find_by!(email: session_params[:email])
   rescue
-    flash.now[:danger] = t('.flash.invalid_mail')
+    flash.now[:danger] = "ユーザーが見つかりません。"
     render :new
   end
 

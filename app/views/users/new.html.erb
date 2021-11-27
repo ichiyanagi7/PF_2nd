@@ -5,6 +5,7 @@
 
   <div class="row">
     <%= form_with model: @user,url: users_path,method: :post,local:true do |f| %>
+    <%= render "layouts/error", model: f.object %>
       <div class="col form-group">
         <%= f.label :ニックネーム %>
         <%= f.text_field :name,class:"form-control" %>

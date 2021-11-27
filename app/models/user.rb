@@ -1,9 +1,10 @@
 class User < ApplicationRecord
   has_many :diaries,dependent: :destroy
 
-  has_secure_password validations: true
-
+  validates :name, presence: true, uniqueness: true
+  validates :age, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
+  has_secure_password validations: true
 
 
   def self.new_remember_token
